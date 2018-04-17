@@ -13,7 +13,7 @@ def create_dataframe(file_path):
     if not os.path.exists(file_path):
         raise ValueError('The file path is not valid') 
     data = sqlite3.connect(file_path)
-    global df
+    #global df
     df = pd.read_sql_query(""" SELECT category_id, video_id, 'ca' as language
     FROM CAvideos
     UNION
