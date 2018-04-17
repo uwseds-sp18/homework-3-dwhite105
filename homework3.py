@@ -3,7 +3,6 @@
 
 # (2 points). Create a python module named homework3.py that provides the same capabilities as create_dataframe in homework 2, and also checks that there is a valid path to the database (the function argument). If the path is not valid, a ValueError exception is raised.
 
-# In[34]:
 
 
 def create_dataframe(file_path):
@@ -13,7 +12,6 @@ def create_dataframe(file_path):
     if not os.path.exists(file_path):
         raise ValueError('The file path is not valid') 
     data = sqlite3.connect(file_path)
-    #global df
     df = pd.read_sql_query(""" SELECT category_id, video_id, 'ca' as language
     FROM CAvideos
     UNION
@@ -31,9 +29,4 @@ def create_dataframe(file_path):
     data.close()
     return df
 
-
-# In[35]:
-
-
-create_dataframe('class.db')
 
